@@ -26,7 +26,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         foreach (var touch in Input.touches)
         {
-            transform.position = camera.ScreenToWorldPoint(touch.position);
+            var destination = camera.ScreenToWorldPoint(touch.position);
+            transform.position = Vector2.Lerp(transform.position, destination, Time.deltaTime);
         }
     }
     public void ConventionalInput()
