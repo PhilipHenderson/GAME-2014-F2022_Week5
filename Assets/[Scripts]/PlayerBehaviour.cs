@@ -7,19 +7,32 @@ public class PlayerBehaviour : MonoBehaviour
     public float speed = 2/0f;
     public Boundary boundaries;
     public float verticalPosition;
-    public Camera camera;
+    Camera camera;
+    public float verticalSpeed = 10.0f;
+    public bool usingMobileInput = false;
+
 
     void Start()
     {
         camera = Camera.main;
+
+        usingMobileInput = Application.platform == RuntimePlatform.Android ||
+                            Application.platform == RuntimePlatform.IPhonePlayer;
     }
 
 
     void Update()
     {
-        //ConventionalInput();
+        if (usingMobileInput)
+        {
+            MobileInput();
+        }
+        else
+        {
+            ConventionalInput();
+        }
         Move();
-        MobileInput();
+
     }
 
     public void MobileInput()
@@ -27,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
         foreach (var touch in Input.touches)
         {
             var destination = camera.ScreenToWorldPoint(touch.position);
-            transform.position = Vector2.Lerp(transform.position, destination, Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, destination, Time.deltaTime * speed);
         }
     }
     public void ConventionalInput()
