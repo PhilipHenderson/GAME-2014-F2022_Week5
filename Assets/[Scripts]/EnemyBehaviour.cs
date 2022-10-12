@@ -53,4 +53,5 @@ public class EnemyBehaviour : MonoBehaviour
         randomColor = colorList[Random.Range(0, 6)];
         spriteRenderer.material.SetColor("_Color", randomColor);
     }
+
 }
