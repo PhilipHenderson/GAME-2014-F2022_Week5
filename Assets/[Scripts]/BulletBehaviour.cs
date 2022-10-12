@@ -53,16 +53,16 @@ public class BulletBehaviour : MonoBehaviour
 
     void CheckBounds()
     {
-        if ((transform.position.x < bounds.horizontal.max) ||
-           (transform.position.x > bounds.horizontal.min) ||
-           (transform.position.y < bounds.vertical.max) ||
-           (transform.position.y > bounds.vertical.min))
+        if ((transform.position.x > bounds.horizontal.max) ||
+           (transform.position.x < bounds.horizontal.min) ||
+           (transform.position.y > bounds.vertical.max) ||
+           (transform.position.y < bounds.vertical.min))
         {
             Destroy(this.gameObject);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(this.gameObject);
     }

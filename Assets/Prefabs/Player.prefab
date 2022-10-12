@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &353368378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353368379}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353368379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353368378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.403, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2373618124308745619}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2373618124308745622
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +42,7 @@ GameObject:
   - component: {fileID: 2373618124308745619}
   - component: {fileID: 2373618124308745620}
   - component: {fileID: 2373618124308745621}
+  - component: {fileID: 5060217479029858785}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -29,7 +61,8 @@ Transform:
   m_LocalPosition: {x: -0.011666027, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 353368379}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,3 +135,49 @@ MonoBehaviour:
     min: -1.9
     max: 1.9
   verticalPosition: -4
+  verticalSpeed: 10
+  usingMobileInput: 0
+  scoreManager: {fileID: 0}
+  bulletParent: {fileID: 0}
+  bulletSpawnPoint: {fileID: 353368379}
+  bulletPrefab: {fileID: 1619860598395365280, guid: 630b339f45236e342b60d3bd4868dd8f, type: 3}
+  fireRate: 0.2
+--- !u!60 &5060217479029858785
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373618124308745622}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.92, y: 0.56}
+    newSize: {x: 0.46, y: 0.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.04129763, y: 0.28168276}
+      - {x: -0.28317285, y: 0.086538404}
+      - {x: -0.46841353, y: -0.08038477}
+      - {x: -0.45999998, y: -0.13307634}
+      - {x: -0.26692337, y: -0.051151067}
+      - {x: -0.09177997, y: -0.22114944}
+      - {x: -0.09033415, y: -0.28450727}
+      - {x: 0.06776601, y: -0.28622818}
+      - {x: 0.07547933, y: -0.21773985}
+      - {x: 0.26409835, y: -0.06688309}
+      - {x: 0.4551444, y: -0.12692317}
+      - {x: 0.4669234, y: -0.08413553}
+      - {x: 0.026153225, y: 0.27831724}
+  m_UseDelaunayMesh: 0
