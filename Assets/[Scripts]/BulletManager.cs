@@ -6,10 +6,10 @@ using UnityEngine;
 public class BulletManager : MonoBehaviour
 {
     [Header("Bullet Properties")]
-    public GameObject bulletPrefab;
     public Queue<GameObject> bulletPool;
-    public Transform bulletParent;
+    public GameObject bulletPrefab;
     public int bulletNumber = 50;
+    public Transform bulletParent;
     public int bulletCount = 0;
     public int activeBullets = 0;
 
@@ -17,14 +17,17 @@ public class BulletManager : MonoBehaviour
     void Start()
     {
         bulletPool = new Queue<GameObject>();
+        BuildBulletPool();
     }
 
     void BuildBulletPool()
     {
-        for (int i = 0; i < bulletCount; i++)
+        for (int i = 0; i < bulletNumber; i++)
         {
             CreateBullet();
         }
+
+        bulletCount = bulletPool.Count;
     }
 
     private void CreateBullet()
